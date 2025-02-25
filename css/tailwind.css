@@ -1,0 +1,7 @@
+/* ~/css/tailwind.css */
+body {
+    @apply bg-paleGreen;
+  }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
