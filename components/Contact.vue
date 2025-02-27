@@ -13,7 +13,7 @@
           <label class="block text-gray-700 text-lg font-semibold">Quel type de prestation souhaitez-vous ?</label>
           <div class="mt-2 space-y-2">
             <label v-for="option in options" :key="option" class="flex items-center space-x-2">
-              <input type="checkbox" v-model="selectedOptions" :value="option" class="form-checkbox text-[#25D366]" />
+              <input type="checkbox" v-model="selectedOptions" :value="option" class="form-checkbox text-[#e2dbd1]" />
               <span class="text-gray-700">{{ option }}</span>
             </label>
           </div>
@@ -23,17 +23,17 @@
         <!-- Ville -->
         <div class="mb-4">
           <label for="city" class="block text-gray-700 text-lg font-semibold">Ville où vous prévoyez votre événement</label>
-          <input v-model="city" id="city" type="text" placeholder="Entrez votre ville" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#25D366]" required />
+          <input v-model="city" id="city" type="text" placeholder="Entrez votre ville" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e2dbd1]" required />
         </div>
 
         <!-- Nombre de personnes -->
         <div class="mb-4">
           <label for="numPeople" class="block text-gray-700 text-lg font-semibold">Nombre de personnes concernées</label>
-          <input v-model="numPeople" id="numPeople" type="number" min="1" placeholder="Nombre de personnes" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#25D366]" required />
+          <input v-model="numPeople" id="numPeople" type="number" min="1" placeholder="Nombre de personnes" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e2dbd1]" required />
         </div>
 
         <!-- Bouton avec icône WhatsApp -->
-        <button type="submit" class="w-full bg-[#25D366] text-white py-3 rounded-md shadow-lg flex items-center justify-center hover:bg-[#128C7E] transition duration-300">
+        <button type="submit" class="w-full bg-[#d8b9ab] text-white py-3 rounded-md shadow-lg flex items-center justify-center hover:bg-[#e2dbd1] transition duration-300">
           <i class="fab fa-whatsapp mr-3 text-2xl"></i> Envoyer via WhatsApp
         </button>
       </form>
@@ -75,6 +75,6 @@ export default {
 
 <style scoped>
 input:checked {
-  accent-color: #25D366;
+  accent-color: #e2dbd1;
 }
 </style>

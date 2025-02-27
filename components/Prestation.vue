@@ -1,68 +1,152 @@
 <template>
-    <section class="bg-[#e2dbd1] py-16 px-6">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-gray-800">Mes Prestations</h2>
-        <p class="text-gray-600 mt-4">Sublimez votre beauté avec un maquillage sur-mesure adapté à toutes vos occasions.</p>
+  <section class="bg-[#e2dbd1] py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800">Mes Prestations</h2>
+      <p class="text-gray-600 mt-4">Sublimez votre beauté avec un maquillage sur-mesure adapté à toutes vos occasions.</p>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div 
+        v-for="service in services" 
+        :key="service.id" 
+        class="bg-white shadow-lg rounded-lg p-6 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl"
+      >
+        <img 
+          :src="service.image" 
+          :alt="service.title" 
+          loading="lazy" 
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        >
+        <h3 class="text-xl font-semibold text-gray-800">{{ service.title }}</h3>
+        <p class="text-gray-600 mt-2">{{ service.description }}</p>
+        <p class="text-lg font-bold text-gray-800 mt-4">
+          ₪{{ service.price }} 
+        </p>
+        <button 
+          @click="openModal(service)" 
+          class="mt-4 inline-block rounded-md bg-[#c4b8aa] px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-[#b3a495] focus:outline-none focus:ring-2 focus:ring-[#c4b8aa]"
+          aria-label="En savoir plus sur {{ service.title }}"
+        >
+          En savoir plus
+        </button>
       </div>
-  
-      <div class="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Carte 1 : Maquillage Mariage -->
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-          <img src="https://lauriefeligioni-makeup.eu/cdn/shop/products/maquillage-mariee-occidentale-888690.jpg?v=1701260388://www.ayshglamm.fr/shop/produit/maquillage-mariee/://www.ayshglamm.fr/shop/wp-content/uploads/2022/09/PHOTO-2022-10-30-15-58-31-2-600x600.png://via.placeholder.com/300x200" alt="Maquillage Mariage" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-xl font-semibold text-gray-800">Maquillage Mariage</h3>
-          <p class="text-gray-600 mt-2">Un maquillage élégant et longue tenue pour le plus beau jour de votre vie.</p>
-          <p class="text-lg font-bold text-gray-800 mt-4">₪350</p>
-          <button @click="openModal = true" class="mt-4 inline-block rounded-md bg-[#c4b8aa] px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-[#b3a495]">
-            En savoir plus
-          </button>
-        </div>
-  
-        <!-- Carte 2 : Maquillage de Soirée -->
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-          <img src="https://lauriefeligioni-makeup.eu/cdn/shop/products/maquillage-mariee-occidentale-888690.jpg?v=1701260388://www.ayshglamm.fr/shop/produit/maquillage-mariee/://www.ayshglamm.fr/shop/wp-content/uploads/2022/09/PHOTO-2022-10-30-15-58-31-2-600x600.png://via.placeholder.com/300x200" alt="Maquillage de Soirée" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-xl font-semibold text-gray-800">Maquillage de Soirée</h3>
-          <p class="text-gray-600 mt-2">Brillez sous les projecteurs avec un maquillage intense et sophistiqué.</p>
-          <p class="text-lg font-bold text-gray-800 mt-4">₪250</p>
-          <button @click="openModal = true" class="mt-4 inline-block rounded-md bg-[#c4b8aa] px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-[#b3a495]">
-            En savoir plus
-          </button>
-        </div>
-  
-        <!-- Carte 3 : Cours de Maquillage -->
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-          <img src="https://lauriefeligioni-makeup.eu/cdn/shop/products/maquillage-mariee-occidentale-888690.jpg?v=1701260388://www.ayshglamm.fr/shop/produit/maquillage-mariee/://www.ayshglamm.fr/shop/wp-content/uploads/2022/09/PHOTO-2022-10-30-15-58-31-2-600x600.png://via.placeholder.com/300x200" alt="Cours de Maquillage" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-xl font-semibold text-gray-800">Cours de Maquillage</h3>
-          <p class="text-gray-600 mt-2">Apprenez les techniques pro pour un maquillage parfait au quotidien.</p>
-          <p class="text-lg font-bold text-gray-800 mt-4">₪180</p>
-          <button @click="openModal = true" class="mt-4 inline-block rounded-md bg-[#c4b8aa] px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-[#b3a495]">
-            En savoir plus
-          </button>
-        </div>
+    </div>
+
+    <!-- Modal (Détails d'un service) -->
+    <transition name="fade">
+  <div v-show="selectedService" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" role="dialog" aria-modal="true">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+      <!-- Affichage de la vidéo sans contrôles et en boucle -->
+      <div v-if="selectedService?.video">
+        <video 
+          :src="selectedService?.video" 
+          autoplay 
+          loop 
+          muted 
+          class="w-full h-48 object-cover rounded-lg mb-4"
+          aria-label="Vidéo de {{ selectedService?.title }}"
+        ></video>
       </div>
-  
-      
-  
-      <!-- Modal (Carte ouverte) -->
-      <div v-if="openModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-          <img src="https://lauriefeligioni-makeup.eu/cdn/shop/products/maquillage-mariee-occidentale-888690.jpg?v=1701260388://www.ayshglamm.fr/shop/produit/maquillage-mariee/://www.ayshglamm.fr/shop/wp-content/uploads/2022/09/PHOTO-2022-10-30-15-58-31-2-600x600.png://www.ayshglamm.fr/shop/wp-content/uploads/2022/09/PHOTO-2022-10-30-15-58-31-2-600x600.png" alt="Détails Maquillage Mariage" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Détails du Maquillage Mariage</h2>
-          <p class="text-gray-600 mb-4">Un maquillage élégant et longue tenue pour le plus beau jour de votre vie. Nous adaptons la couleur et les techniques selon vos préférences pour garantir un résultat parfait.</p>
-          <p class="text-lg font-bold text-gray-800">₪350</p>
-          <button @click="openModal = false" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-400">
-            Fermer
-          </button>
-        </div>
+      <div v-else>
+        <img 
+          :src="selectedService?.image" 
+          :alt="selectedService?.title" 
+          loading="lazy" 
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        >
       </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        openModal: false,
-      };
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ selectedService?.title }}</h2>
+      <p class="text-gray-600 mb-4">{{ selectedService?.description }}</p>
+      <p class="text-lg font-bold text-gray-800">
+        ₪{{ selectedService?.price }} 
+      </p>
+      <button 
+        @click="closeModal" 
+        class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-400"
+        aria-label="Fermer la fenêtre"
+      >
+        Fermer
+      </button>
+    </div>
+  </div>
+</transition>
+  </section>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      selectedService: null,
+      services: [
+        {
+          id: 1,
+          title: "Maquillage Mariée",
+          description: "Un maquillage élégant et longue tenue pour le plus beau jour de votre vie.",
+          price: 1000,
+          image: './img/mariage.jpg',
+          video: './video/vid1.mov'  // Ajout d'une vidéo
+        },
+        {
+          id: 2,
+          title: "Maquillage de Soirée",
+          description: "Brillez sous les projecteurs avec un maquillage intense et sophistiqué.",
+          price: 400,
+          image: './img/soiree.jpg',
+          video: './video/vid2.mp4'  // Ajout d'une vidéo
+        },
+        {
+          id: 3,
+          title: "Maquillage Bar Mitzvah",
+          description: "Un maquillage adapté pour célébrer un moment unique.",
+          price: 400,
+          image: '@/assets/img/barmitzvah.jpg',
+          video: '@/assets/videos/barmitzvah.mp4'  // Ajout d'une vidéo
+        },
+        {
+          id: 4,
+          title: "Maquillage Brit Milah",
+          description: "Une mise en beauté naturelle et raffinée pour l'événement.",
+          price: 400,
+          image: '@/assets/img/britmilah.jpg',
+          video: '@/assets/videos/britmilah.mp4'  // Ajout d'une vidéo
+        },
+        {
+          id: 5,
+          title: "Cours d'Auto-maquillage",
+          description: "Apprenez les techniques professionnelles pour un maquillage parfait.",
+          price: 400,
+          image: '@/assets/img/cours.jpg',
+          video: '@/assets/videos/cours.mp4'  // Ajout d'une vidéo
+        },
+        {
+          id: 6,
+          title: "Pose de Faux Cils",
+          description: "Faux cils longue tenue pour Yom Tov et Chabbat",
+          price: 150,
+          image: '@/assets/img/fauxcils.jpg',
+          video: '@/assets/videos/fauxcils.mp4'  // Ajout d'une vidéo
+        }
+      ]
+    };
+  },
+  mounted() {
+    window.addEventListener("keydown", this.handleKeyPress);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeyPress);
+  },
+  methods: {
+    openModal(service) {
+      this.selectedService = service;
     },
-  };
-  </script>
+    closeModal() {
+      this.selectedService = null;
+    },
+    handleKeyPress(event) {
+      if (event.key === "Escape") {
+        this.closeModal();
+      }
+    }
+  }
+};
+</script>
