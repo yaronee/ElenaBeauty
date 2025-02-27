@@ -65,8 +65,8 @@ export default {
       }
       
       const prestationText = this.selectedOptions.join(", ");
-      const message = `Bonjour, j'aimerais en savoir plus sur les prestations suivantes : ${prestationText} pour ${this.numPeople} personne(s) dans la ville de ${this.city}.`;
-      const whatsappUrl = `https://wa.me/33767564012?text=${encodeURIComponent(message)}`;
+      const message = `Bonjour, j'aimerais en savoir plus sur la prestation suivante : ${prestationText} pour ${this.numPeople} personne(s) dans la ville de ${this.city}.`;
+      const whatsappUrl = `https://wa.me/972548978324?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
   }

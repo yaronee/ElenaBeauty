@@ -1,17 +1,14 @@
 <template>
   <header class="bg-[#d8b9ab]">
-    <nav class="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8" aria-label="Global">
-      <!-- Conteneur pour l'entreprise et les liens -->
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <!-- Nom de la maquilleuse à gauche -->
       <div class="flex items-center space-x-12">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Votre Entreprise</span>
-          <!-- Logo ou image ici si nécessaire -->
-        </a>
+        <a href="#" class="text-xl font-bold text-gray-900">ElenaBeauty</a> <!-- Nom affiché à gauche -->
+      </div>
 
-        <!-- Navigation centrale -->
-        <div class="flex gap-x-12">
-          <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold text-gray-900">{{ item.name }}</a>
-        </div>
+      <!-- Navigation centrale -->
+      <div class="flex gap-x-12">
+        <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold text-gray-900">{{ item.name }}</a>
       </div>
     </nav>
 
@@ -43,9 +40,9 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
-  { name: 'Acceuil', href: '#Main' },
-  { name: 'Prestation', href: '#Prestation' },
-  { name: 'Contact', href: '#Contact' },
+  { name: 'Acceuil', href: '/Main' },
+  { name: 'Prestation', href: '/Prestation' },
+  { name: 'Contact', href: '/Contact' },
 ]
 
 const mobileMenuOpen = ref(false)

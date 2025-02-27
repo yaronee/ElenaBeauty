@@ -7,7 +7,7 @@
         <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
           <p class="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Avec Elena, un maquillage sur-mesure pour toutes vos occasions !</p>
           <div class="mt-10 flex items-center gap-x-6">
-            <a href="#" class="rounded-md bg-[#d8b9ab] px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e2dbd1]">
+            <a href="#Prestation" class="rounded-md bg-[#d8b9ab] px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e2dbd1]">
               Voir Les Prestations
             </a>
           </div>
