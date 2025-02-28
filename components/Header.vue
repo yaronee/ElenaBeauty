@@ -6,7 +6,12 @@
 
       <!-- Menu Desktop -->
       <div class="hidden lg:flex gap-x-8">
-        <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold text-gray-900">
+        <a 
+          v-for="item in navigation" 
+          :key="item.name" 
+          :href="item.href" 
+          class="text-sm font-semibold text-gray-900"
+        >
           {{ item.name }}
         </a>
       </div>
@@ -25,7 +30,13 @@
           <XMarkIcon class="h-6 w-6" aria-hidden="true" />
         </button>
         <div class="flex flex-col gap-y-4">
-          <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-semibold text-gray-900">
+          <a 
+            v-for="item in navigation" 
+            :key="item.name" 
+            :href="item.href" 
+            class="text-base font-semibold text-gray-900"
+            @click="closeMobileMenu"
+          >
             {{ item.name }}
           </a>
         </div>
@@ -40,10 +51,22 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
-  { name: 'Accueil', href: '/Main' },
-  { name: 'Prestation', href: '/Prestation' },
-  { name: 'Contact', href: '/Contact' },
+  { name: 'Accueil', href: '#main' },
+  { name: 'Prestation', href: '#prestation' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 const mobileMenuOpen = ref(false)
+
+// Ferme le menu mobile lorsqu'un lien est cliqué
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>
+
+<style>
+/* Ajout du défilement fluide */
+html {
+  scroll-behavior: smooth;
+}
+</style>

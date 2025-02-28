@@ -10,9 +10,9 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Navigation</h4>
           <ul class="space-y-2">
-            <li><a href="index.html" class="text-white hover:opacity-80">Accueil</a></li>
-            <li><a href="prestations.html" class="text-white hover:opacity-80">Prestations</a></li>
-            <li><a href="contact.html" class="text-white hover:opacity-80">Contact</a></li>
+            <li><a href="#main" class="text-white hover:opacity-80">Accueil</a></li>
+            <li><a href="#prestation" class="text-white hover:opacity-80">Prestations</a></li>
+            <li><a href="#contact" class="text-white hover:opacity-80">Contact</a></li>
           </ul>
         </div>
 

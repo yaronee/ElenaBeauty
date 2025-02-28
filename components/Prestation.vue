@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#e2dbd1] py-16 px-6">
+  <section  id="prestation" class="bg-[#e2dbd1] py-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-4xl font-bold text-gray-800">Mes Prestations</h2>
       <p class="text-gray-600 mt-4">Sublimez votre beauté avec un maquillage sur-mesure, pensé pour révéler tout votre éclat en toute occasion.</p>

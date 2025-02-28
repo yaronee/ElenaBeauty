@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#d8b9ab] py-16 px-6">
+  <section  id="contact" class="bg-[#d8b9ab] py-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-4xl font-bold text-gray-800 mb-4">Faites-nous part de vos besoins futurs</h2>
       <p class="text-gray-600 mt-4 text-lg">Indiquez la prestation souhaitée, la ville et le nombre de personnes pour mieux comprendre vos besoins à venir. Nous vous contacterons via WhatsApp pour plus de détails.</p>
