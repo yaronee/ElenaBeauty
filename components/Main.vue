@@ -8,11 +8,11 @@
         aria-hidden="true">
       </div>
 
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:py-24 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-x-12 flex flex-col-reverse items-center lg:flex-row">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:py-20 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:max-w-none flex flex-col lg:flex-row items-center lg:items-start gap-8">
           
           <!-- Texte -->
-          <div class="mt-6 max-w-md text-center lg:text-left lg:mt-0 xl:col-start-1">
+          <div class="max-w-md text-center lg:text-left lg:flex-1">
             <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold tracking-tight text-gray-900">
               Sublimez chaque occasion avec un maquillage à votre image ! 💄✨
             </h1>
@@ -26,9 +26,9 @@
             </div>
           </div>
 
-          <!-- Vidéo (taille intermédiaire) -->
-          <div class="flex justify-center lg:justify-end w-full">
-            <video class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px] rounded-xl object-cover sm:mt-8 lg:mt-0 xl:row-span-2 xl:row-end-2" autoplay muted loop>
+          <!-- Vidéo réduite sur desktop -->
+          <div class="w-full flex justify-center lg:justify-end lg:flex-1">
+            <video class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[350px] lg:w-auto rounded-xl object-cover sm:mt-8 lg:mt-0" autoplay muted loop>
               <source src="/video/vid2.mp4" type="video/mp4" />
             </video>
           </div>
