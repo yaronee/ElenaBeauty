@@ -29,7 +29,10 @@
           <!-- Vidéo réduite sur desktop -->
           <div class="w-full flex justify-center lg:justify-end lg:flex-1">
             <video class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[350px] lg:w-auto rounded-xl object-cover sm:mt-8 lg:mt-0" autoplay muted loop>
-              <source src="/video/vid2.mp4" type="video/mp4" />
+              <source autoplay 
+  loop 
+  muted 
+  playsinline src="/video/vid2.mp4" type="video/mp4" />
             </video>
           </div>
 
