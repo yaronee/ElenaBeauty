@@ -5,7 +5,6 @@
       <p class="text-gray-600 mt-4">Sublimez votre beauté avec un maquillage sur-mesure, pensé pour révéler tout votre éclat en toute occasion.</p>
     </div>
 
-    <!-- Grille adaptée -->
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <div 
         v-for="service in services" 
@@ -83,7 +82,7 @@ export default {
           title: "Maquillage Mariée",
           description: "Sublimez votre grand jour avec un maquillage élégant et raffiné qui tient toute la journée. Soyez la plus belle version de vous-même !",
           price: 1000,
-          image: './img/mariage.jpg',
+          image: './img/Mariage.jpg',
           video: './video/vid1.mov'
         },
         {
