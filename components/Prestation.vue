@@ -37,13 +37,14 @@
         <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
           <div v-if="selectedService?.video">
             <video 
-              :src="selectedService?.video" 
-              autoplay 
-              loop 
-              muted 
-              class="w-full h-48 object-cover rounded-lg mb-4"
-              aria-label="Vidéo de {{ selectedService?.title }}"
-            ></video>
+  :src="selectedService?.video" 
+  autoplay 
+  loop 
+  muted 
+  playsinline 
+  class="w-full max-h-[300px] sm:max-h-[400px] object-cover rounded-lg mb-4"
+  aria-label="Vidéo de {{ selectedService?.title }}"
+></video>
           </div>
           <div v-else>
             <img 
