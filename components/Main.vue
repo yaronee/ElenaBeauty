@@ -20,7 +20,7 @@
               Avec Elena, un maquillage sur-mesure et pour tous vos événements !
             </p>
             <div class="mt-6 flex justify-center lg:justify-start">
-              <a href="#" class="rounded-md bg-[#d8b9ab] px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e2dbd1]">
+              <a href="#prestation" class="rounded-md bg-[#d8b9ab] px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e2dbd1]">
                 Voir Les Prestations
               </a>
             </div>
